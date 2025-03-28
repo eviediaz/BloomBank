@@ -19,7 +19,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/episode1" replace />} />
+          <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Index />} />
           <Route path="/seasons" element={<Seasons />} />
           <Route path="/work-travel-episodes" element={<WorkTravelEpisodes />} />
