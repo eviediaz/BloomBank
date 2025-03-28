@@ -12,7 +12,7 @@ const Seasons: React.FC = () => {
     <MobileAppLayout>
       {/* Header */}
       <div className="bg-[rgba(238,115,145,1)] w-full flex items-center p-4 text-white">
-        <button onClick={() => navigate("/")} className="mr-4">
+        <button onClick={() => navigate("/index")} className="mr-4">
           <ArrowLeft className="h-6 w-6" />
         </button>
         <h1 className="text-xl font-medium">Explorar temporadas</h1>
