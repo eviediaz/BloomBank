@@ -83,10 +83,7 @@ const Episode1: React.FC = () => {
 
         {/* Continue Button */}
         <div className="fixed bottom-0 left-0 right-0 p-5 bg-[#F6C1D3]">
-          <Button 
-            className="w-full bg-[#F26A8D] hover:bg-[#e05a7d] text-white py-5 rounded-full font-bold text-lg h-auto"
-            onClick={() => navigate("/episode2")}
-          >
+          <Button className="w-full bg-[#F26A8D] hover:bg-[#e05a7d] text-white py-5 rounded-full font-bold text-lg h-auto">
             Continuar
           </Button>
         </div>
