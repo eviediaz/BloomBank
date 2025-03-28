@@ -1,54 +1,52 @@
+import React, { useState } from "react";
+import Header from "@/components/home/Header";
+import UserGreeting from "@/components/home/UserGreeting";
+import CharacterSelection from "@/components/home/CharacterSelection";
+import SeasonExplorer from "@/components/home/SeasonExplorer";
+import Footer from "@/components/home/Footer";
 
-import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
+const Index: React.FC = () => {
+  // State for form elements could be added here
+  const [userName, setUserName] = useState("Sofía");
 
-const Index = () => {
-  const [readmeContent, setReadmeContent] = useState<string[]>([
-    "# Blank Project",
-    "",
-    "This is a blank project template created with Lovable.",
-    "",
-    "## Getting Started",
-    "",
-    "1. Clone this repository",
-    "2. Run `npm install` to install dependencies",
-    "3. Run `npm run dev` to start the development server",
-    "4. Open your browser to http://localhost:8080",
-    "",
-    "## Project Structure",
-    "",
-    "The project has a minimal structure with just the essential files to get started.",
-    "",
-    "## Features",
-    "",
-    "- React",
-    "- TypeScript",
-    "- Tailwind CSS",
-    "- Shadcn UI components (available but not used)"
-  ]);
+  // This would be connected to an actual form in a real implementation
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserName(e.target.value);
+  };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
-      <div className="container mx-auto px-4 py-8 max-w-3xl">
-        <div className="prose dark:prose-invert max-w-none">
-          {readmeContent.map((line, index) => {
-            if (line.startsWith("# ")) {
-              return <h1 key={index} className="text-3xl font-bold mt-6 mb-4">{line.substring(2)}</h1>;
-            } else if (line.startsWith("## ")) {
-              return <h2 key={index} className="text-2xl font-semibold mt-6 mb-3">{line.substring(3)}</h2>;
-            } else if (line.startsWith("- ")) {
-              return <li key={index} className="ml-6 my-1">{line.substring(2)}</li>;
-            } else if (line.startsWith("1. ") || line.startsWith("2. ") || line.startsWith("3. ") || line.startsWith("4. ")) {
-              return <li key={index} className="ml-8 my-1 list-decimal">{line.substring(3)}</li>;
-            } else if (line === "") {
-              return <div key={index} className="my-2"></div>;
-            } else {
-              return <p key={index} className="my-2">{line}</p>;
-            }
-          })}
-        </div>
+    <main className="bg-[rgba(246,193,211,1)] flex max-w-[480px] w-full flex-col overflow-hidden items-center mx-auto min-h-screen">
+      <Header />
+
+      <div className="flex flex-col items-center w-full px-4">
+        <UserGreeting
+          name={userName}
+          avatarUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/b83e65b8a27c2dc35341abec15bf131739f2939c?placeholderIfAbsent=true"
+        />
+
+        {/* Hidden form for name change - would be shown in a modal/settings page */}
+        <form className="hidden">
+          <label htmlFor="user-name">Your Name:</label>
+          <input
+            id="user-name"
+            type="text"
+            value={userName}
+            onChange={handleNameChange}
+            className="border rounded px-2 py-1"
+          />
+        </form>
+
+        <CharacterSelection imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/ff35291338b36efc3645d172f0817f563971021a?placeholderIfAbsent=true" />
+
+        <SeasonExplorer
+          backgroundUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/35427f0361453384588173fa6875fb425cff1cfe?placeholderIfAbsent=true"
+          iconUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/815e86d0336c2cf988cb234cf759442b9f12b359?placeholderIfAbsent=true"
+          seasonTitle="Ahorro para Work & Travel"
+        />
       </div>
-    </div>
+
+      <Footer navigationImageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/0c205903a2dd34588e223c934b580d21e919052f?placeholderIfAbsent=true" />
+    </main>
   );
 };
 
