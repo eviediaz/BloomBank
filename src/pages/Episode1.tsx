@@ -3,21 +3,32 @@ import React from "react";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import MobileAppLayout from "@/components/home/MobileAppLayout";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const Episode1: React.FC = () => {
   const navigate = useNavigate();
 
   return (
     <MobileAppLayout>
-      <div className="flex flex-col w-full h-full bg-[rgba(238,115,145,1)]">
+      <div className="flex flex-col w-full h-full min-h-screen bg-[#F26A8D]">
         {/* Header */}
-        <div className="bg-[rgba(238,115,145,1)] w-full flex items-center p-4 text-white">
-          <button onClick={() => navigate("/work-travel-episodes")} className="mr-4">
+        <div className="bg-[#F26A8D] w-full flex items-center p-4 text-white">
+          <button onClick={() => navigate("/work-travel-episodes")} className="mr-2">
             <ArrowLeft className="h-6 w-6" />
           </button>
-          <h1 className="text-xl font-medium">Episodio 1</h1>
+          <div className="flex items-center">
+            <div className="w-8 h-8 bg-pink-300 rounded-full overflow-hidden mr-2">
+              <img
+                src="/lovable-uploads/0bd13447-95c6-4638-842f-52a0510c0013.png"
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h1 className="text-xl font-medium">Episodio 1</h1>
+          </div>
           <div className="ml-auto flex items-center gap-2">
-            <div className="bg-yellow-400 rounded-full px-2 py-1 flex items-center">
+            <div className="bg-yellow-400 rounded-full px-3 py-1 flex items-center">
               <span className="text-white font-bold">🔥 930</span>
             </div>
           </div>
@@ -25,8 +36,8 @@ const Episode1: React.FC = () => {
 
         {/* Progress Bar */}
         <div className="px-4 mt-2 mb-4">
-          <div className="bg-[rgba(245,182,201,1)] w-full h-4 rounded-full">
-            <div className="bg-[rgba(238,115,145,1)] w-[25%] h-4 rounded-full"></div>
+          <div className="bg-pink-300 w-full h-5 rounded-full">
+            <div className="bg-pink-400 w-[25%] h-5 rounded-full"></div>
           </div>
           <div className="flex justify-end mt-1">
             <span className="text-white font-bold">❤️ 5</span>
@@ -53,22 +64,22 @@ const Episode1: React.FC = () => {
 
           {/* Character message */}
           <div className="flex mt-2">
+            <div className="ml-2 bg-white p-3 rounded-2xl shadow-md self-start flex items-start">
+              <p className="text-gray-800">Pero hay un problema...</p>
+            </div>
             <img
               src="/lovable-uploads/9de302fa-6a6b-4cda-a09f-42e7836a0d27.png"
               alt="Hamster character"
-              className="w-24 h-24 object-contain"
+              className="w-28 h-28 object-contain"
             />
-            <div className="bg-white p-3 rounded-2xl shadow-md ml-2 self-start mt-4">
-              <p className="text-gray-800">Pero hay un problema...</p>
-            </div>
           </div>
         </div>
 
         {/* Continue Button */}
-        <div className="fixed bottom-0 left-0 right-0 p-4 bg-[rgba(246,193,211,1)]">
-          <button className="w-full bg-[rgba(238,115,145,1)] text-white py-3 rounded-full font-bold text-lg">
+        <div className="fixed bottom-0 left-0 right-0 p-5 bg-[#F6C1D3]">
+          <Button className="w-full bg-[#F26A8D] hover:bg-[#e05a7d] text-white py-5 rounded-full font-bold text-lg h-auto">
             Continuar
-          </button>
+          </Button>
         </div>
       </div>
     </MobileAppLayout>
